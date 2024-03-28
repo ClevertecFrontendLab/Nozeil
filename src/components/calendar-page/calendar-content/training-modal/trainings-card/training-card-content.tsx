@@ -5,8 +5,10 @@ import { trainingModalDateSelector } from '@redux/slices/training-modal/training
 import { Empty } from 'antd';
 
 import { useGetTrainingQueryWithSkip } from '../../hooks/use-get-training-with-skip';
-import styles from './../training-modal.module.css';
+
 import { Training } from './training';
+
+import styles from '../training-modal.module.css';
 
 type TrainingCardContentProps = {
     areTrainingsEmpty: boolean;

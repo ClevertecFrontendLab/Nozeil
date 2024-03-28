@@ -15,10 +15,6 @@
     padding: var(--p-footer-card-meta);
 }
 
-.btnLink:global(.ant-btn-link) {
-    padding: var(--p-footer-link-btn);
-}
-
 .cardBtnLink:global(.ant-btn-link) {
     padding: var(--p-footer-card-link-btn);
     text-align: start;
@@ -38,10 +34,6 @@
 
 .card:global(.ant-card) :global(.ant-card-actions) > li {
     border: none;
-}
-
-.btn:global(.ant-btn-link) {
-    padding: var(--p-footer-link-btn);
 }
 
 @media screen and (max-width: 767px) {

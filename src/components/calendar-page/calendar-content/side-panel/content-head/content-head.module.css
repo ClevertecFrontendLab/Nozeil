@@ -1,9 +1,0 @@
-.contentHead {
-    margin-bottom: var(--mb-side-panel-content-head);
-}
-
-.title:global(.ant-typography) {
-    flex-grow: 1;
-    margin: var(--m-side-panel-title);
-    font-weight: var(--font-medium);
-}

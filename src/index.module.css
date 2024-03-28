@@ -8,6 +8,10 @@
 @import url('./styles/components/calendar.module.css');
 @import url('./styles/components/dropdown.module.css');
 @import url('./styles/components/radio-buttons.module.css');
+@import url('./styles/components/date-picker.module.css');
+@import url('./styles/components/upload.module.css');
+@import url('./styles/components/switch.module.css');
+@import url('./styles/components/radio-inputs.module.css');
 
 :global(.ant-breadcrumb),
 :global(.ant-breadcrumb) li,
@@ -24,7 +28,8 @@
 :global(.ant-checkbox-wrapper),
 :global(.ant-result-title),
 :global(.ant-modal-title),
-:global(textarea.ant-input) {
+:global(textarea.ant-input),
+:global(.ant-alert) {
     color: var(--character-light-title-85);
     line-height: var(--line-height);
 }
@@ -39,6 +44,7 @@
 :global(.ant-badge),
 :global(.ant-modal-confirm-body .ant-modal-confirm-title),
 :global(.ant-modal-confirm-body .ant-modal-confirm-content),
+:global(.ant-tooltip),
 a {
     line-height: var(--line-height);
 }
@@ -103,7 +109,7 @@ a {
     color: var(--primary-light-6);
 }
 
-:global(.ant-btn-text) {
+:global(.ant-btn-text:not(.ant-upload-list-item-card-actions-btn)) {
     &:hover,
     &:active,
     &:focus {
@@ -129,10 +135,10 @@ a {
 }
 
 :global(.ant-divider-horizontal) {
-    margin: 0;
+    margin: var(--m-divider-horizontal);
 }
 
 :global(.ant-card-head),
 :global(.ant-card-head-title) {
-    padding: 0;
+    padding: var(--p-card-head-card-head-title);
 }

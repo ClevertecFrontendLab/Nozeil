@@ -15,13 +15,13 @@ export const NameInput = ({ id, initialValue, index }: NameInputProps) => {
 
     const addonAfter =
         formMode === 'new' ? null : (
-            <Form.Item name={[id, 'shouldDelete']} noStyle valuePropName='checked'>
+            <Form.Item name={[id, 'shouldDelete']} noStyle={true} valuePropName='checked'>
                 <Checkbox data-test-id={`modal-drawer-right-checkbox-exercise${index}`} />
             </Form.Item>
         );
 
     return (
-        <Form.Item name={[id, 'name']} initialValue={initialValue} noStyle>
+        <Form.Item name={[id, 'name']} initialValue={initialValue} noStyle={true}>
             <Input
                 className={styles.input}
                 placeholder='Упражнение'

@@ -1,0 +1,15 @@
+.wrapper {
+    position: relative;
+    height: 100%;
+    padding: var(--p-content-wrapper);
+    background-color: var(--character-light-primary-inverse);
+    border-radius: var(--rounded-8);
+}
+
+@media screen and (max-width: 575px) {
+    .wrapper {
+        padding-top: var(--px-content-wrapper-mobile-l);
+        padding-bottom: var(--px-content-wrapper-mobile-l);
+        border-radius: var(--rounded-none);
+    }
+}

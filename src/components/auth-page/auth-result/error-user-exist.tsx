@@ -1,5 +1,5 @@
-import { COMPOUND_ROUTES } from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
+import { COMPOUND_ROUTES } from '@constants/routes';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';
@@ -15,9 +15,9 @@ export const ErrorUserExist = () => {
         <ResultCard
             head={<ResultIcon type={RESULT_ICON_TYPE_KEYS.ERROR} />}
             title='Данные не сохранились'
-            text={`Такой e-mail уже записан в системе. Попробуйте зарегистрироваться по другому e-mail.`}
+            text="Такой e-mail уже записан в системе. Попробуйте зарегистрироваться по другому e-mail."
         >
-            <ResultButton block onClick={onClick} testId='registration-back-button'>
+            <ResultButton block={true} onClick={onClick} testId='registration-back-button'>
                 Назад к регистрации
             </ResultButton>
         </ResultCard>

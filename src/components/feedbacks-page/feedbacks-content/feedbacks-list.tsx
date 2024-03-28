@@ -1,16 +1,17 @@
+import { type ReactNode, useEffect, useMemo } from 'react';
+import { ErrorResponse } from 'react-router-dom';
 import { HTTP_STATUS_CODES } from '@constants/index';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/use-auth';
 import { openError500Modal } from '@redux/slices/error-500-modal';
 import { useGetFeedbacksQuery } from '@services/endpoints/feedbacks';
 import { List } from 'antd';
-import { type ReactNode, useEffect, useMemo } from 'react';
-import { ErrorResponse } from 'react-router-dom';
 
 import { EmptyFeedbacks } from './empty-feedbacks/empty-feedbacks';
 import { Feedback } from './feedback/feedback';
-import styles from './feedback-content.module.css';
 import { ListContainer } from './list-container';
+
+import styles from './feedback-content.module.css';
 
 type FeedbacksListProps = {
     empty: ReactNode;
@@ -38,7 +39,12 @@ export const FeedbacksList = ({ showAll, footer, empty }: FeedbacksListProps) =>
     useEffect(() => {
         if (isError) {
             const e = error as ErrorResponse;
-            e.status === HTTP_STATUS_CODES.FORBIDDEN ? signout() : dispatch(openError500Modal());
+
+            if (e.status === HTTP_STATUS_CODES.FORBIDDEN) {
+                signout();
+            } else {
+                dispatch(openError500Modal());
+            }
         }
     }, [dispatch, error, isError, signout]);
 

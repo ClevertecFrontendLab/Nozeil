@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 
 import { INPUT_GROUP_TYPE_KEYS } from '../auth-page.constants';
 import { type TypeValues } from '../auth-page.types';
+
 import styles from './input-group.module.css';
 
 type InputGroupProps = {

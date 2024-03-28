@@ -6,7 +6,7 @@ import {
 } from '@redux/slices/training-modal/training-modal';
 import { Row, Typography } from 'antd';
 
-import styles from './../training-modal.module.css';
+import styles from '../training-modal.module.css';
 
 type ExercisesProps = {
     onAdd: () => void;

@@ -84,6 +84,7 @@ export const trainingModalSlice = createSlice({
         },
         setTrainings: (state, action: SetTrainingsAction) => {
             const { trainingType, trainings } = action.payload;
+
             state.trainingType = trainingType;
             state.trainings = trainings;
         },
@@ -97,6 +98,7 @@ export const trainingModalSlice = createSlice({
             const exercise = {
                 _id: uuidv4(),
             };
+
             state.formExercises = [...state.formExercises, exercise];
         },
         resetFormExercises: (state) => {

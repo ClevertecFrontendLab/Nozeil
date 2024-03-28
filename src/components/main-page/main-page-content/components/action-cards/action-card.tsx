@@ -1,7 +1,8 @@
 import { Button, Card, Col } from 'antd';
 
-import styles from './action-cards.module.css';
 import type { ActionCardProps } from './action-cards.types';
+
+import styles from './action-cards.module.css';
 
 export const ActionCard = ({
     title,
@@ -14,7 +15,7 @@ export const ActionCard = ({
         <Card className={styles.card} title={title} bordered={false}>
             <Button
                 className={styles.btn}
-                block
+                block={true}
                 type='link'
                 icon={buttonIcon}
                 data-test-id={testId}

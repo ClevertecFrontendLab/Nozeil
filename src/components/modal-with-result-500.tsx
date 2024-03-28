@@ -17,7 +17,7 @@ export const ModalWithResult500 = ({ onClick }: ModalWithResult500Props) => {
         <ModalWithShadowMd
             open={isOpen}
             closable={false}
-            centered
+            centered={true}
             width={WIDTH_540}
             footer={null}
             maskStyle={{ backgroundColor: 'var(--blue-1)' }}

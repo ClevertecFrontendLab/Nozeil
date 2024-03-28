@@ -1,0 +1,13 @@
+.resultWrapper {
+    height: 100%;
+}
+
+.result :global(.ant-result-title) {
+    font-weight: var(--font-medium);
+}
+
+@media screen and (max-width: 450px) {
+    .result:global(.ant-result) {
+        padding: var(--p-not-found-content-result-mobile);
+    }
+}

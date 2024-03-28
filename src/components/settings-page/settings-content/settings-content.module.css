@@ -1,0 +1,17 @@
+.settingsContainer {
+    max-width: var(--mw-settings-container);
+}
+
+.btnGroup {
+    margin-top: var(--mt-settings-content-btn-group);
+}
+
+.btn:global(.ant-btn) {
+    font-size: var(--text-sm);
+}
+
+@media screen and (max-width: 575px) {
+    .btnGroup {
+        margin-top: var(--mt-settings-content-btn-group-mobile-l);
+    }
+}

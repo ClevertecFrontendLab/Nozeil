@@ -1,4 +1,4 @@
-import { type TrainingExercise } from "@models/models";
+import { type TrainingExercise } from '@models/models';
 
 export type FormValues = {
   [x: number]: Omit<TrainingExercise, 'isImplementation'> & {

@@ -1,0 +1,9 @@
+.result:global(.ant-result-success) {
+    padding: var(--p-feedback-result-success);
+}
+
+@media screen and (max-width: 450px) {
+    .result:global(.ant-result-success) {
+        padding: var(--p-feedback-result-success-mobile-l);
+    }
+}

@@ -1,5 +1,5 @@
-import { COMPOUND_ROUTES } from '@constants/routes';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { COMPOUND_ROUTES } from '@constants/routes';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';
@@ -19,7 +19,7 @@ export const ErrorRegistration = () => {
             text={`Что-то пошло не так и ваша регистрация 
 не завершилась. Попробуйте ещё раз.`}
         >
-            <ResultButton block onClick={onClick} testId='registration-retry-button'>
+            <ResultButton block={true} onClick={onClick} testId='registration-retry-button'>
                 Повторить
             </ResultButton>
         </ResultCard>

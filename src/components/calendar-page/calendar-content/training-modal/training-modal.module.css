@@ -110,15 +110,11 @@
     background-color: transparent;
 }
 
-.modalOkBtn {
-    height: var(--h-40s);
-}
-
 .badgeDisabled :global(.ant-badge-status-text) {
     color: var(--character-light-disable-25);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 575px) {
     .modal {
         width: 100%;
     }

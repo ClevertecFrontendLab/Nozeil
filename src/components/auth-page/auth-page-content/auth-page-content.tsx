@@ -1,11 +1,11 @@
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { ContentLayout } from '@components/auth-page/content-layout/content-layout';
 import { COMPOUND_ROUTES, ROUTES } from '@constants/routes';
 import { Image,Tabs } from 'antd';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-
-import Logo from '/svg/logo.svg';
 
 import styles from './auth-page-content.module.css';
+
+import Logo from '/svg/logo.svg';
 
 const items = [
     {
@@ -40,8 +40,8 @@ export const AuthPageContent = () => {
             <Tabs
                 className={styles.tabs}
                 defaultActiveKey={defaultActiveKey}
-                destroyInactiveTabPane
-                centered
+                destroyInactiveTabPane={true}
+                centered={true}
                 items={items}
                 size='large'
                 color='red'

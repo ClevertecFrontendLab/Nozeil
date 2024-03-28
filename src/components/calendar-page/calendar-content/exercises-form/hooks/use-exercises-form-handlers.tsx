@@ -50,6 +50,7 @@ export const useExercisesFormHandlers = (
 
     const valuesChangeHandler = (values: FormValues) => {
         const isDisabled = !Object.values(values).some((field) => field?.shouldDelete);
+
         setIsDisabled(isDisabled);
     };
 

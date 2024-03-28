@@ -1,0 +1,6 @@
+@import url('../common-main-content.module.css');
+
+.headerContent:global(.ant-layout-header) {
+    padding: var(--p-not-found-header-content);
+    background-color: transparent;
+}

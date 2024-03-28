@@ -40,7 +40,7 @@
 
     :global(
             .ant-select-single.ant-select-sm:not(.ant-select-customize-input)
-                .ant-select-selector::after
+                .ant-select-selector:after
         ),
     :global(
             .ant-select-single.ant-select-sm:not(.ant-select-customize-input)

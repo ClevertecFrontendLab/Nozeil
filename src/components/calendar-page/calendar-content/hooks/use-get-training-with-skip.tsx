@@ -1,8 +1,8 @@
+import { useMemo } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { routerSelector } from '@redux/router-selector';
 import { useGetTrainingQuery } from '@services/endpoints/training';
 import moment from 'moment';
-import { useMemo } from 'react';
 
 export const useGetTrainingQueryWithSkip = (iso?: string) => {
     const { previousLocations } = useAppSelector(routerSelector);

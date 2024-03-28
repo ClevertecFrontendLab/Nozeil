@@ -1,13 +1,12 @@
+import { DATE_FORMATS } from '@constants/index';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import {
     closeTrainingModal,
     trainingModalSelector,
 } from '@redux/slices/training-modal/training-modal';
 import { useCreateTrainingMutation, useUpdateTrainingMutation } from '@services/endpoints/training';
-import { Modal } from 'antd';
+import { CenteredModalError } from '@utils/modal-error/modal-error';
 import moment from 'moment';
-
-import styles from './../training-modal.module.css';
 
 export const useOnSaveExercise = (reset: () => void) => {
     const [createTraining, { isLoading: isCreateLoading }] = useCreateTrainingMutation();
@@ -25,7 +24,7 @@ export const useOnSaveExercise = (reset: () => void) => {
 
             const body = {
                 name: trainingType.name,
-                date: moment(localDate).format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'),
+                date: moment(localDate).format(DATE_FORMATS.ISO),
                 isImplementation: isPast,
                 parameters: {
                     repeat: false,
@@ -43,6 +42,7 @@ export const useOnSaveExercise = (reset: () => void) => {
                     }),
                 ),
             };
+
             if (exercisesFormMode === 'new') {
                 await createTraining(body).unwrap();
             } else if (exercisesFormMode === 'edit') {
@@ -51,7 +51,7 @@ export const useOnSaveExercise = (reset: () => void) => {
                 }
             }
         } catch {
-            Modal.error({
+            CenteredModalError({
                 title: (
                     <span data-test-id='modal-error-user-training-title'>
                         При сохранении данных произошла ошибка
@@ -62,13 +62,7 @@ export const useOnSaveExercise = (reset: () => void) => {
                         Придётся попробовать ещё раз
                     </span>
                 ),
-                centered: true,
-                autoFocusButton: null,
                 okText: <span data-test-id='modal-error-user-training-button'>Закрыть</span>,
-                okButtonProps: {
-                    className: styles.modalOkBtn,
-                },
-                maskStyle: { backgroundColor: 'var(--blue-2)' },
                 onOk: (close) => {
                     close();
                     dispatch(closeTrainingModal());

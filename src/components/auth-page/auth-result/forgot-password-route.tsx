@@ -1,29 +1,40 @@
+import { type ReactNode, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { routerSelector } from '@redux/router-selector';
-import { type ReactNode, useLayoutEffect, useRef } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
 
 type ForgotPasswordRouteProps = {
     children: ReactNode;
+    isErrorRoute?: boolean;
     prevRoute: string;
 };
 
-export const ForgotPasswordRoute = ({ children, prevRoute }: ForgotPasswordRouteProps) => {
+export const ForgotPasswordRoute = ({
+    children,
+    prevRoute,
+    isErrorRoute,
+}: ForgotPasswordRouteProps) => {
     const router = useAppSelector(routerSelector);
     const location = useLocation();
-    const hasAccess = useRef(false);
+    const navigate = useNavigate();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (
             router.previousLocations?.at(-1)?.location?.pathname !== prevRoute &&
             router.location?.pathname === location.pathname
         ) {
-            hasAccess.current = true;
+            navigate(ROUTES.AUTH, { state: isErrorRoute && location.state });
         }
-    }, []);
+    }, [
+        isErrorRoute,
+        location.pathname,
+        location.state,
+        navigate,
+        prevRoute,
+        router.location,
+        router.previousLocations,
+    ]);
 
-    const content = hasAccess ? children : <Navigate to={ROUTES.AUTH} state={location.state} />;
-
-    return content;
+    return children;
 };

@@ -1,12 +1,12 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { Image } from 'antd';
-import { useLocation, useNavigate } from 'react-router-dom';
-
-import ErrorImage from '/png/error-image.png';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_CARD_TYPE_KEYS } from '../auth-page.constants';
 import { ResultCard } from '../result-card/result-card';
+
+import ErrorImage from '/png/error-image.png';
 
 export const ErrorCheckEmail = () => {
     const navigate = useNavigate();

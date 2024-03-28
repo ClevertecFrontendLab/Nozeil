@@ -20,3 +20,9 @@ export const NAV_MENU_LABELS = {
     EXIT: 'Выход',
     DIVIDER: 'Divider',
 } as const;
+
+export const DATE_FORMATS = {
+    ISO: 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]',
+    DMY: 'DD.MM.YYYY',
+    DM: 'DD.MM',
+} as const;

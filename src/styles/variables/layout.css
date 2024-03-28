@@ -1,6 +1,8 @@
 :root {
   --trigger-right: 1px;
   --trigger-top-tablet: 24px;
+  --profile-alert-bottom: 27px;
+  --profile-alert-bottom-mobile-l: 48px;
   --z-5: 5;
   --z-10: 10;
 }

@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
 import { useGetTrainingQueryWithSkip } from '@components/calendar-page/calendar-content/hooks/use-get-training-with-skip';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { trainingModalSelector } from '@redux/slices/training-modal/training-modal';
-import { useMemo } from 'react';
 
 export const useTrainingTypes = () => {
     const { isPast, date } = useAppSelector(trainingModalSelector);

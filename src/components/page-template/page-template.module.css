@@ -1,5 +1,5 @@
 .layout:global(.ant-layout) {
-    margin-bottom: var(--mb-page-template-layout);
+    padding-bottom: var(--mb-page-template-layout);
 }
 
 .layout:global(.ant-layout),

@@ -9,6 +9,7 @@
     --font-normal: 400;
     --font-medium: 500;
     --font-bold: 700;
+    --line-height-67: 67px;
     --line-height-28: 28px;
     --line-height-26: 26px;
     --line-height-24: 24px;
@@ -16,7 +17,7 @@
     --line-height-20: 20px;
     --line-height-18: 18px;
     --line-height-16: 16px;
-    --line-height: 0;
+    --line-height-1: 1;
     --line-height: 1.3;
     --verification-input-line-height: 40px;
     --menu-item-line-height: 42px;

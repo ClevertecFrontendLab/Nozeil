@@ -1,11 +1,12 @@
+import { type ReactNode } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { ContentLayout } from '@components/auth-page/content-layout/content-layout';
 import { ROUTES } from '@constants/routes';
 import { Space, Typography } from 'antd';
-import { type ReactNode } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
 
 import { RESULT_CARD_TYPE_KEYS } from '../auth-page.constants';
 import type { TypeValues } from '../auth-page.types';
+
 import styles from './result-card.module.css';
 
 type ResultCardProps = {
@@ -27,7 +28,7 @@ export const ResultCard = ({ head, title, text, type = DEFAULT, children }: Resu
     }[type];
 
     if (!state?.from) {
-        return <Navigate to={ROUTES.AUTH} replace />;
+        return <Navigate to={ROUTES.AUTH} replace={true} />;
     }
 
     return (

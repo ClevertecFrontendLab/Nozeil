@@ -1,5 +1,6 @@
 .input:global(.ant-input),
-.input :global(.ant-input) {
+.input :global(.ant-input),
+.input:global(.ant-input-number) {
     flex-grow: 1;
     line-height: var(--line-height-24);
 }

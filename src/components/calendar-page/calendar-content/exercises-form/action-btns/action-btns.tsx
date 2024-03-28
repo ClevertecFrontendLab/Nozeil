@@ -1,13 +1,13 @@
+import { Fragment } from 'react';
 import { MinusOutlined } from '@ant-design/icons';
 import { Flex } from '@components/flex/flex';
 import { useAppSelector } from '@hooks/index';
-import {
-    trainingModalFormModeSelector,
-} from '@redux/slices/training-modal/training-modal';
+import { trainingModalFormModeSelector } from '@redux/slices/training-modal/training-modal';
 import { Button } from 'antd';
 
-import styles from './action-btns.module.css';
 import { AddBtn } from './add-btn';
+
+import styles from './action-btns.module.css';
 
 type ActionBtnsProps = {
     deleteDisabled: boolean;
@@ -26,7 +26,7 @@ export const ActionBtns = ({ deleteDisabled, onDelete }: ActionBtnsProps) => {
     } else if (formMode === 'edit') {
         btnsWrapperClassName = styles.btnsWrapperEditMode;
         btns = (
-            <>
+            <Fragment>
                 <AddBtn />
                 <Button
                     className={styles.btn}
@@ -38,7 +38,7 @@ export const ActionBtns = ({ deleteDisabled, onDelete }: ActionBtnsProps) => {
                 >
                     Удалить
                 </Button>
-            </>
+            </Fragment>
         );
     }
 

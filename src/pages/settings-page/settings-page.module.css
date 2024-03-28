@@ -1,0 +1,5 @@
+@import url('../common-main-content.module.css');
+
+.layout:global(.ant-layout) {
+    background-color: var(--character-light-background);
+}

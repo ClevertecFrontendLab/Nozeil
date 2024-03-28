@@ -1,9 +1,9 @@
 import { Image } from 'antd';
 
+import styles from './logo.module.css';
+
 import LogoBase from '/svg/logo.svg';
 import LogoCropped from '/svg/logo-cropped.svg';
-
-import styles from './logo.module.css';
 
 type LogoProps = {
     isBreakpoint: boolean;

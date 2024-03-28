@@ -1,0 +1,4 @@
+.iconsWrapper {
+    max-width: var(--mw-tariffs-side-panel-comparison-item-icons-wrapper);
+    width: 100%;
+}

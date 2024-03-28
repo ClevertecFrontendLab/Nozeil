@@ -1,3 +1,5 @@
+import { type MouseEventHandler, useEffect, useRef, useState } from 'react';
+import { DATE_FORMATS } from '@constants/index';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
 import {
     closeTrainingModal,
@@ -7,10 +9,10 @@ import {
     setTrainingModalDate,
 } from '@redux/slices/training-modal/training-modal';
 import moment from 'moment';
-import { type MouseEventHandler, useEffect, useRef, useState } from 'react';
 
 import { CellContent } from '../../cell-content/cell-content';
 import type { Coords } from '../use-training-modal.types';
+
 import { calcCoords, disablePanelChange } from './use-training-modal.utils';
 
 export const useTrainingModal = (breakpoint: boolean | undefined) => {
@@ -36,7 +38,7 @@ export const useTrainingModal = (breakpoint: boolean | undefined) => {
         dispatch(
             setTrainingModalDate({
                 iso,
-                formated: date.format('DD.MM.YYYY'),
+                formated: date.format(DATE_FORMATS.DMY),
             }),
         );
 
@@ -46,13 +48,20 @@ export const useTrainingModal = (breakpoint: boolean | undefined) => {
     const dateCellRender = (date: moment.Moment) => {
         const iso = date.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISOString();
 
-        const onClick: MouseEventHandler<HTMLDivElement> = (e) => {
+        const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
             disablePanelChange(e, date, breakpoint);
 
             initStoreActions(date, iso);
 
-            const coords = calcCoords(e, calendarWrapperRef.current, container, breakpoint);
-            setCoords(coords);
+            const { coords: calculadtedCoords, container: current } = calcCoords(
+                e,
+                calendarWrapperRef.current,
+                breakpoint,
+            );
+
+            container.current = current;
+
+            setCoords(calculadtedCoords);
         };
 
         return <CellContent breakpoint={breakpoint} iso={iso} onClick={onClick} />;

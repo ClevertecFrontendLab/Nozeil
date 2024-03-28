@@ -11,9 +11,8 @@ type NotificationProps = {
 
 export const Notification = ({ isOpen, close, refresh }: NotificationProps) => (
     <Modal
-        className={styles.modal}
         open={isOpen}
-        centered
+        centered={true}
         footer={null}
         width={384}
         closable={false}
@@ -32,7 +31,7 @@ export const Notification = ({ isOpen, close, refresh }: NotificationProps) => (
                     </Typography.Title>
                     <Typography.Text
                         className={styles.title}
-                        disabled
+                        disabled={true}
                         data-test-id='modal-error-user-training-subtitle'
                     >
                         Попробуйте ещё раз.

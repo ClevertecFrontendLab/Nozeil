@@ -22,13 +22,12 @@ export const ListContainer = ({ showAll, children }: ListContainerProps) => {
         if (showAll) {
             if (containerHeight && footerHeight && cards) {
                 const additionalPadding = 12;
+
                 cards.style.height = `${containerHeight - footerHeight - additionalPadding}px`;
             }
-        } else {
-            if (cards) {
+        } else if (cards) {
                 cards.style.height = '';
             }
-        }
     }, [container, containerHeight, showAll]);
 
     return (

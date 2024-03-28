@@ -13,6 +13,7 @@
     --rounded-top-24: 24px 24px 0 0;
     --rounded-bottom-6: 0 0 6px 6px;
     --rounded-right-8: 8px 0 0 8px;
+    --rounded-8: 8px;
     --border-1: 1px;
     --border-none: 0;
     --rounded-none: 0;
@@ -54,5 +55,24 @@
     --h-side-panel-content-head: 42px;
     --w-side-panel-close-btn: 14px;
     --h-side-panel-close-btn: 14px;
+    --mw-settings-container: 505px;
+    --mw-settings-content-switch-field-text-mobile-l: 176px;
+    --mw-settings-content-tariffs-card: 240px;
+    --h-settings-content-tariffs-card-body: 95px;
+    --mw-settings-content-tariffs-tariff-status-text: 72px;
+    --mw-settings-content-tariffs-card-mobile-l: 312px;
+    --h-settings-content-tariffs-card-body-mobile-l: 64px;
+    --w-tariffs-side-panel-x: 63px;
+    --h-tariffs-side-panel-x: 67px;
+    --w-tariff-label: 56px;
+    --h-tariff-selection-item: 32px;
+    --mw-tariffs-side-panel-comparison-item-icons-wrapper: 88px;
+    --mw-profile-form: 480px;
+    --mw-profile-alert: 395px;
+    --mw-profile-alert-mobile-l: 312px;
+    --w-profile-upload-form-item: 112px;
+    --h-profile-upload-form-item: 112px;
+    --h-profile-upload-progress: 14px;
+    --w-profile-upload-progress: 87px;
 
 }

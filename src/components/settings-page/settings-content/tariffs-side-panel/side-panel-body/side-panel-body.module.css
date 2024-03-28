@@ -1,0 +1,70 @@
+.sidePanelBody {
+    padding-top: var(--pt-settings-content-side-panel-body);
+}
+
+.tariffLabelFree,
+.tariffLabelPro {
+    width: var(--w-tariff-label);
+    padding: var(--p-tariff-label);
+    font-size: var(--text-xs);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tariffLabelFree {
+    background-color: var(--character-light-dividers);
+}
+
+.tariffLabelPro {
+    background-color: var(--primary-light-1);
+}
+
+.tariffLabelPro:has(:global(.anticon)) {
+    text-align: end;
+}
+
+.successIcon:global(.anticon) {
+    margin-left: var(--ml-tariffs-side-panel-success-icon);
+    font-size: var(--text-sm);
+    color: var(--character-light-success);
+}
+
+.proTariffLabelText {
+    color: var(--primary-light-7);
+}
+
+.comparisonList,
+.tariffSelectionList {
+    margin: var(--m-tariffs-side-panel-list);
+    padding: var(--p-tariffs-side-panel-list);
+    padding-right: var(--pr-tariffs-side-panel-list);
+}
+
+.comparisonList {
+    margin-bottom: var(--mb-tariffs-side-panel-list);
+}
+
+.tariffSelectionTitle:global(.ant-typography) {
+    margin-top: var(--mt-tariffs-side-panel-tariff-selection-title);
+    margin-bottom: var(--mb-tariffs-side-panel-tariff-selection-title);
+    font-size: var(--font-sm);
+    font-weight: var(--font-bold);
+}
+
+.radioGroup:global(.ant-radio-group) {
+    width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+    .sidePanelBody {
+        padding-top: var(--pt-settings-content-side-panel-body-mobile-l);
+    }
+
+    .comparisonList {
+        margin-bottom: var(--mb-tariffs-side-panel-list-mobile-l);
+    }
+
+    .tariffSelectionTitle:global(.ant-typography) {
+        margin: var(--m-tariffs-side-panel-tariff-selection-title-mobile-l);
+    }
+}

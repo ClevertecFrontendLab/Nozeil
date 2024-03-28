@@ -1,7 +1,7 @@
+import { ReactNode } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { selectSider } from '@redux/slices/sider';
 import { Card, Space, Typography } from 'antd';
-import { ReactNode } from 'react';
 
 import styles from './empty-feedbacks.module.css';
 

@@ -1,15 +1,16 @@
+import { useCallback, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { COMPOUND_ROUTES } from '@constants/routes';
 import { useChangePasswordMutation } from '@services/endpoints/auth';
 import { Typography } from 'antd';
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
+import { PasswordsGroup } from '../../../passwords-group/passwords-group';
 import { INPUT_GROUP_TYPE_KEYS } from '../../auth-page.constants';
 import { ContentLayout } from '../../content-layout/content-layout';
 import { InputGroup } from '../../input-group/input-group';
-import { PasswordsGroup } from '../../passwords-group/passwords-group';
 import { AuthForm } from '../auth-form/auth-form';
 import type { OnFinishChangePasswordValues } from '../auth-forms.types';
+
 import styles from './change-password.module.css';
 
 export const ChangePassword = () => {
@@ -17,26 +18,30 @@ export const ChangePassword = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const onFinish = async (values: OnFinishChangePasswordValues) => {
-        const options = {
-            state: { from: location, values },
-        };
-        try {
-            await changePassword({
-                password: values.password,
-                confirmPassword: values['password-confirm'],
-            }).unwrap();
-            navigate(COMPOUND_ROUTES.RESULT_SUCCESS_CHANGE_PASSWORD, options);
-        } catch {
-            navigate(COMPOUND_ROUTES.RESULT_ERROR_CHANGE_PASSWORD, options);
-        }
-    };
+    const onFinish = useCallback(
+        async (values: OnFinishChangePasswordValues) => {
+            const options = {
+                state: { from: location, values },
+            };
+
+            try {
+                await changePassword({
+                    password: values.password,
+                    confirmPassword: values['password-confirm'],
+                }).unwrap();
+                navigate(COMPOUND_ROUTES.RESULT_SUCCESS_CHANGE_PASSWORD, options);
+            } catch {
+                navigate(COMPOUND_ROUTES.RESULT_ERROR_CHANGE_PASSWORD, options);
+            }
+        },
+        [changePassword, location, navigate],
+    );
 
     useEffect(() => {
         if (location?.state?.values) {
             onFinish(location.state.values);
         }
-    }, []);
+    }, [location, onFinish]);
 
     return (
         <ContentLayout>
@@ -46,7 +51,7 @@ export const ChangePassword = () => {
                 submitButtonClassName={styles.btn}
                 submitButtonText='Сохранить'
                 submitButtonTestId='change-submit-button'
-                shouldValidate
+                shouldValidate={true}
             >
                 <Typography.Title level={3} className={styles.title}>
                     Восстановление аккауанта

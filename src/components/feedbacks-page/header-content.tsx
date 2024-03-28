@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { Breadcrumb } from 'antd';
-import { Link } from 'react-router-dom';
 
 export const HeaderContent = () => (
     <Breadcrumb>

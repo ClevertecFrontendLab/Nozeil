@@ -10,6 +10,10 @@
     flex-direction: column;
 }
 
+.column-reverse {
+    flex-direction: column-reverse;
+}
+
 .justifyStart {
     justify-content: start;
 }

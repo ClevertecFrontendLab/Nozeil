@@ -1,18 +1,18 @@
 import moment from 'moment';
-import { type MutableRefObject } from 'react';
 
 import { type Coords } from '../use-training-modal.types';
+
 import { type EventType } from './use-training-modal.types';
 
 export const calcCoords = (
     e: EventType,
     calendarWrapper: HTMLDivElement | null,
-    containerRef: MutableRefObject<HTMLElement | null>,
     breakpoint?: boolean,
 ) => {
     let coords: Coords = {
         top: 0,
     };
+    let container = null;
 
     if (calendarWrapper) {
         const trainingCardWidth = 264;
@@ -23,21 +23,21 @@ export const calcCoords = (
         const { top: wrapperTop, right: wrapperRight } = calendarWrapper.getBoundingClientRect();
 
         if (breakpoint) {
-            containerRef.current = cellMask.closest('td');
-
+            container = cellMask.closest('td');
             const x = cellMask.offsetLeft + marginX;
             const top = cellMask.offsetTop;
+
             coords =
                 cellMaskX + trainingCardWidth >= wrapperRight
                     ? { right: x, top }
                     : { left: x, top };
         } else {
-            containerRef.current = calendarWrapper;
+            container = calendarWrapper;
             coords = { top: cellMaskBottom - wrapperTop };
         }
     }
 
-    return coords;
+    return { coords, container };
 };
 
 export const disablePanelChange = (e: EventType, date: moment.Moment, breakpoint?: boolean) => {

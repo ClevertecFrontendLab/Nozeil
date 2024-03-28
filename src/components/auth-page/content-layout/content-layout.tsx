@@ -1,6 +1,6 @@
+import { type ReactNode } from 'react';
 import { Card, Space } from 'antd';
 import classNames from 'classnames/bind';
-import { type ReactNode } from 'react';
 
 import styles from './content-layout.module.css';
 

@@ -1,16 +1,18 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import { INPUT_GROUP_TYPE_KEYS } from '@components/auth-page/auth-page.constants';
 import { InputGroup } from '@components/auth-page/input-group/input-group';
 import { COMPOUND_ROUTES, ROUTES } from '@constants/routes';
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/use-auth';
 import { useLoginUserMutation } from '@services/endpoints/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
 
-import { EmailInput } from '../../inputs/email-input';
-import { PasswordInput } from '../../inputs/password-input';
+import { EmailInput } from '../../../inputs/email-input';
+import { PasswordInput } from '../../../inputs/password-input';
 import { AuthForm } from '../auth-form/auth-form';
 import type { OnFinishLoginValues } from '../auth-forms.types';
-import styles from './login-form.module.css';
+
 import { PasswordOptions } from './password-options/password-options';
+
+import styles from './login-form.module.css';
 
 export const LoginForm = () => {
     const [loginUser] = useLoginUserMutation();
@@ -37,13 +39,13 @@ export const LoginForm = () => {
         <AuthForm
             className={styles.loginForm}
             name='login-form'
-            googleButton
+            googleButton={true}
             googleButtonText='Войти через Google'
             onFinish={onFinish}
             submitButtonTestId='login-submit-button'
         >
             <InputGroup type={INPUT_GROUP_TYPE_KEYS.LG}>
-                <EmailInput required testId='login-email' />
+                <EmailInput required={true} testId='login-email' />
                 <PasswordInput testId='login-password' />
             </InputGroup>
 

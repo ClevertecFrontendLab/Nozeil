@@ -1,13 +1,13 @@
 import { type TrainingExercise, TrainingResponse } from '@models/models';
 import { type PayloadAction } from '@reduxjs/toolkit';
 
-export type TrainingTypesWithImplementation = Pick<TrainingResponse, 'name' | 'isImplementation'>[];
+export type TrainingTypesWithImplementation = Array<Pick<TrainingResponse, 'name' | 'isImplementation'>>;
 
 type Exercise = TrainingExercise & { _id: number | string };
 
 export type Exercises = Exercise[];
 
-export type FormExercises = (Partial<TrainingExercise> & { _id: number | string })[];
+export type FormExercises = Array<Partial<TrainingExercise> & { _id: number | string }>;
 
 export type Trainings = TrainingResponse[];
 
@@ -32,7 +32,7 @@ export type AddExerciseAction = PayloadAction<Exercise>;
 
 export type RemoveFormExerciseByIdAction = PayloadAction<string | number>;
 
-export type RemoveFormExercisesByIdsAction = PayloadAction<(string | number)[]>;
+export type RemoveFormExercisesByIdsAction = PayloadAction<Array<string | number>>;
 
 export type FormModes = 'edit' | 'view' | 'new';
 

@@ -1,5 +1,6 @@
-import styles from './flex.module.css';
 import type { ClassNameType, CreateFlexClassNamesType } from './flex.types';
+
+import styles from './flex.module.css';
 
 export const createFlexClassNames: CreateFlexClassNamesType = (
     { xxl, xl, lg, md, sm, xs },
@@ -7,10 +8,10 @@ export const createFlexClassNames: CreateFlexClassNamesType = (
 ) => {
     const stylesClassNames = { direction: '', justify: '', align: '', gap: '' };
 
-    const classNamesWithKeys: {
+    const classNamesWithKeys: Array<{
         key: keyof typeof stylesClassNames;
         className: ClassNameType;
-    }[] = [
+    }> = [
         { key: 'direction', className: direction },
         { key: 'justify', className: justify },
         { key: 'align', className: align },
@@ -20,8 +21,7 @@ export const createFlexClassNames: CreateFlexClassNamesType = (
     classNamesWithKeys.forEach(({ key, className }) => {
         if (typeof className === 'string') {
             stylesClassNames[key] = styles[className];
-        } else {
-            if (xxl && className?.xxl) {
+        } else if (xxl && className?.xxl) {
                 stylesClassNames[key] = styles[className.xxl];
             } else if (xl && className?.xl) {
                 stylesClassNames[key] = styles[className.xl];
@@ -34,7 +34,6 @@ export const createFlexClassNames: CreateFlexClassNamesType = (
             } else if (xs && className?.xs) {
                 stylesClassNames[key] = styles[className.xs];
             }
-        }
     });
 
     return Object.values(stylesClassNames);

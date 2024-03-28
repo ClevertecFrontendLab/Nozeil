@@ -9,9 +9,10 @@ import {
 import { useGetTrainingListQuery } from '@services/endpoints/catalogs';
 import { Button, Card, Typography } from 'antd';
 
-import styles from './../training-modal.module.css';
 import { useTrainingTypes } from './hooks/use-training-types';
 import { TrainingCardContent } from './training-card-content';
+
+import styles from '../training-modal.module.css';
 
 export const TrainingsCard = () => {
     const { trainingQueryResult, trainingTypes, isPast, date } = useTrainingTypes();
@@ -39,7 +40,7 @@ export const TrainingsCard = () => {
             actions={[
                 <Button
                     className={styles.actionBtn}
-                    block
+                    block={true}
                     type='primary'
                     size='large'
                     disabled={trainingList?.length === trainingTypes?.length || isPast}
@@ -56,7 +57,7 @@ export const TrainingsCard = () => {
                         Тренировки на <span className={styles.date}>{date.formated}</span>
                     </Typography.Text>
                     {areTrainingsEmpty && (
-                        <Typography.Text className={styles.subtitle} disabled>
+                        <Typography.Text className={styles.subtitle} disabled={true}>
                             Нет активных тренировок
                         </Typography.Text>
                     )}

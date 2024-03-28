@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { STORAGE_TOKEN_KEY } from '@constants/index';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { selectAuthToken, setToken } from '@redux/slices/auth';
@@ -9,25 +10,38 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = useAppSelector(selectAuthToken);
     const dispatch = useAppDispatch();
 
-    const signin: Signin = (accessToken, callback, remember) => {
-        if (remember) {
-            localStorage.setItem(STORAGE_TOKEN_KEY, accessToken);
-        }
+    const signin: Signin = useCallback(
+        (accessToken, callback, remember) => {
+            if (remember) {
+                localStorage.setItem(STORAGE_TOKEN_KEY, accessToken);
+            }
 
-        dispatch(setToken(accessToken));
-        callback();
-    };
-
-    const signout: Signout = (callback) => {
-        localStorage.removeItem(STORAGE_TOKEN_KEY);
-        dispatch(setToken(null));
-
-        if (callback) {
+            dispatch(setToken(accessToken));
             callback();
-        }
-    };
+        },
+        [dispatch],
+    );
 
-    const value = { token, signin, signout };
+    const signout: Signout = useCallback(
+        (callback) => {
+            localStorage.removeItem(STORAGE_TOKEN_KEY);
+            dispatch(setToken(null));
+
+            if (callback) {
+                callback();
+            }
+        },
+        [dispatch],
+    );
+
+    const value = useMemo(
+        () => ({
+            token,
+            signin,
+            signout,
+        }),
+        [signin, signout, token],
+    );
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

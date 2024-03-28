@@ -1,0 +1,24 @@
+.tariffSelectionItem {
+    height: var(--h-tariff-selection-item);
+}
+
+.radio:global(.ant-radio-wrapper) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    margin: var(--m-tariff-selection-form-radio-wrapper);
+}
+
+.radio :global(.ant-radio) {
+    margin-left: var(--ml-tariff-selection-form-radio);
+}
+
+.radio span:not(:global(.ant-radio)) {
+    flex-grow: 1;
+    padding: var(--p-tariff-selection-form-radio-span);
+}
+
+.price:global(.ant-typography) {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+}

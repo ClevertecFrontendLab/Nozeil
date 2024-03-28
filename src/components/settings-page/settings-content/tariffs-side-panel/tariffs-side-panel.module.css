@@ -1,0 +1,24 @@
+.sidePanel :global(.ant-drawer-footer) {
+    padding: var(--p-settings-content-tariffs-side-panel-footer);
+}
+
+.proTariffActiveTitle:global(.ant-typography) {
+    margin: var(--m-settings-content-tariffs-side-panel-pro-tariff-active-title);
+    margin-top: var(--mt-settings-content-tariffs-side-panel-pro-tariff-active-title);
+    padding: var(--p-settings-content-tariffs-side-panel-pro-tariff-active-title);
+    font-weight: var(--font-medium);
+    color: var(--primary-light-10);
+    background-color: var(--primary-light-1);
+    text-align: center;
+}
+
+@media screen and (max-width: 575px) {
+    .sidePanel :global(.ant-drawer-footer) {
+        padding-right: var(--px-settings-content-tariffs-side-panel-footer-mobile-l);
+        padding-left: var(--px-settings-content-tariffs-side-panel-footer-mobile-l);
+    }
+
+    .proTariffActiveTitle:global(.ant-typography) {
+        padding: var(--p-settings-content-tariffs-side-panel-pro-tariff-active-title-mobile-l);
+    }
+}

@@ -1,3 +1,3 @@
-import { MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 
-export type EventType = MouseEvent<HTMLDivElement>;
+export type EventType = MouseEvent<HTMLButtonElement>;

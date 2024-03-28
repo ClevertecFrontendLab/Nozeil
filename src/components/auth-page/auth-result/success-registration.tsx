@@ -1,5 +1,5 @@
-import { ROUTES } from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@constants/routes';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';
@@ -18,7 +18,7 @@ export const SuccessRegistration = () => {
             text={`Регистрация прошла успешно. Зайдите
 в приложение, используя свои e-mail и пароль.`}
         >
-            <ResultButton block onClick={onClick} testId='registration-enter-button'>
+            <ResultButton block={true} onClick={onClick} testId='registration-enter-button'>
                 Войти
             </ResultButton>
         </ResultCard>

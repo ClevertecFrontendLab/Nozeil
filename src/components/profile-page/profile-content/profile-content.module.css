@@ -1,0 +1,41 @@
+.personalTitle:global(.ant-typography),
+.privacyTitle:global(.ant-typography) {
+    margin: var(--m-profile-content-title);
+    font-weight: var(--font-medium);
+}
+
+.privacyTitle:global(.ant-typography) {
+    margin-top: var(--mb-profile-content-privacy-title);
+}
+
+.form:global(.ant-form) {
+    max-width: var(--mw-profile-form);
+}
+
+.form :global(.ant-form-item):last-of-type {
+    margin-bottom: var(--mb-profile-content-form-item);
+}
+
+.datePicker:global(.ant-picker) {
+    width: 100%;
+    padding: var(--p-profile-content-date-picker);
+}
+
+.input {
+    padding: var(--p-auth-input);
+}
+
+.input:global(.ant-input),
+.datePicker:global(.ant-picker) input {
+    font-size: var(--text-sm);
+}
+
+.inputsWrapper {
+    flex: 1;
+}
+
+@media screen and (max-width: 575px) {
+    .form:global(.ant-form) {
+        max-width: 100%;
+    }
+}

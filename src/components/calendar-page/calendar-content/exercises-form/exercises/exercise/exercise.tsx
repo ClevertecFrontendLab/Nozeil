@@ -1,9 +1,10 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Col, Form, Grid, Input, Row, Typography } from 'antd';
 
-import styles from './exercise.module.css';
 import { NameInput } from './name-input';
 import { WrappedInputNumber } from './wrapped-input-number';
+
+import styles from './exercise.module.css';
 
 const { useBreakpoint } = Grid;
 
@@ -14,7 +15,6 @@ type ExerciseProps = {
     replays?: number;
     weight?: number;
     approaches?: number;
-    isImplementation?: boolean;
 };
 
 export const Exercise = ({ id, name, replays, weight, approaches, testIdIndex }: ExerciseProps) => {
@@ -26,7 +26,7 @@ export const Exercise = ({ id, name, replays, weight, approaches, testIdIndex }:
 
     return (
         <Row gutter={[0, 8]}>
-            <Form.Item name={[id, 'id']} initialValue={id} noStyle hidden>
+            <Form.Item name={[id, 'id']} initialValue={id} noStyle={true} hidden={true}>
                 <Input />
             </Form.Item>
             <NameInput id={id} initialValue={name} index={testIdIndex} />
@@ -58,7 +58,7 @@ export const Exercise = ({ id, name, replays, weight, approaches, testIdIndex }:
 
                         <Col>
                             <Row className={styles.xRow} align='bottom'>
-                                <Typography.Text className={styles.x} disabled>
+                                <Typography.Text className={styles.x} disabled={true}>
                                     x
                                 </Typography.Text>
                             </Row>

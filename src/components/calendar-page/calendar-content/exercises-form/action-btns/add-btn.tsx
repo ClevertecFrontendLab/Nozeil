@@ -12,7 +12,7 @@ export const AddBtn = () => {
     return (
         <Button
             className={styles.btn}
-            block
+            block={true}
             icon={<PlusOutlined />}
             size='large'
             type='link'

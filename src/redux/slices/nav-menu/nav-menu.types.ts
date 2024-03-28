@@ -1,6 +1,4 @@
-import { NAV_MENU_LABELS } from '@constants/index';
 import { type PayloadAction } from '@reduxjs/toolkit';
+import { NavMenuSelectedKey } from '@typings/index';
 
-type ActiveKeys = Omit<typeof NAV_MENU_LABELS, 'DIVIDER' | 'EXIT'>;
-
-export type SelectedKeyAction = PayloadAction<ActiveKeys[keyof ActiveKeys]>;
+export type SelectedKeyAction = PayloadAction<NavMenuSelectedKey>;

@@ -1,8 +1,8 @@
-import { STORAGE_TOKEN_KEY } from '@constants/index';
-import { ROUTES } from '@constants/routes';
-import { useAuth } from '@hooks/useAuth';
 import { useLayoutEffect } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { STORAGE_TOKEN_KEY } from '@constants/index';
+import { ROUTES } from '@constants/routes';
+import { useAuth } from '@hooks/use-auth';
 
 export const CheckGoogleAuthRoute = () => {
     const location = useLocation();

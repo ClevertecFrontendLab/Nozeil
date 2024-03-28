@@ -1,0 +1,17 @@
+.switchField {
+    width: 100%;
+}
+
+.switchFieldText {
+    font-weight: var(--font-bold);
+}
+
+.tooltipOverlay {
+    white-space: pre-wrap;
+}
+
+@media screen and (max-width: 575px) {
+    .switchFieldText {
+        max-width: var(--mw-settings-content-switch-field-text-mobile-l);
+    }
+}

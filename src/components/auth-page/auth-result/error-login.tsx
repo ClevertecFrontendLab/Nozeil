@@ -1,5 +1,5 @@
-import { ROUTES } from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@constants/routes';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';
@@ -17,7 +17,7 @@ export const ErrorLogin = () => {
             title='Вход не выполнен'
             text='Что-то пошло не так. Попробуйте еще раз'
         >
-            <ResultButton block onClick={onClick} testId='login-retry-button'>
+            <ResultButton block={true} onClick={onClick} testId='login-retry-button'>
                 Повторить
             </ResultButton>
         </ResultCard>

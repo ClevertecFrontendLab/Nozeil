@@ -1,0 +1,15 @@
+.wrapper {
+    margin-bottom: var(--mb-side-panel-content-head);
+}
+
+.title:global(.ant-typography) {
+    flex-grow: 1;
+    margin: var(--m-side-panel-title);
+    font-weight: var(--font-medium);
+}
+
+.closeBtn:global(.ant-btn) {
+    width: var(--w-side-panel-close-btn);
+    height: var(--h-side-panel-close-btn);
+    padding: var(--p-side-panel-close-btn);
+}

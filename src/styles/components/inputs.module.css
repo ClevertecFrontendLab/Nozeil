@@ -7,8 +7,14 @@
 :global(.ant-input):focus,
 :global(.ant-input-number):hover,
 :global(.ant-input-number):focus,
-:global(.ant-input-number-focused) {
+:global(.ant-input-number-focused),
+:global(.ant-picker):hover,
+:global(.ant-picker-focused) {
     border-color: var(--primary-light-6);
+}
+
+:global(.ant-picker-focused) {
+    box-shadow: var(--input-shadow);
 }
 
 :global(.ant-checkbox-checked) :global(.ant-checkbox-inner) {

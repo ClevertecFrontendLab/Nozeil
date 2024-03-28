@@ -1,10 +1,11 @@
+import { Fragment, useState } from 'react';
 import { type FormInstance, Form } from 'antd';
-import { useState } from 'react';
 
 import { ActionBtns } from './action-btns/action-btns';
 import { Exercises } from './exercises/exercises';
-import styles from './exercises-form.module.css';
 import { useExercisesFormHandlers } from './hooks/use-exercises-form-handlers';
+
+import styles from './exercises-form.module.css';
 
 type ExercisesFormProps = {
     form: FormInstance;
@@ -12,10 +13,13 @@ type ExercisesFormProps = {
 
 export const ExercisesForm = ({ form }: ExercisesFormProps) => {
     const [isDeleteBtnDisabled, setIsDeleteBtnDisabled] = useState(true);
-    const { onDelete, onFinish, valuesChangeHandler } = useExercisesFormHandlers(form, setIsDeleteBtnDisabled);
+    const { onDelete, onFinish, valuesChangeHandler } = useExercisesFormHandlers(
+        form,
+        setIsDeleteBtnDisabled,
+    );
 
     return (
-        <>
+        <Fragment>
             <Form
                 className={styles.form}
                 form={form}
@@ -29,6 +33,6 @@ export const ExercisesForm = ({ form }: ExercisesFormProps) => {
             </Form>
 
             <ActionBtns deleteDisabled={isDeleteBtnDisabled} onDelete={onDelete} />
-        </>
+        </Fragment>
     );
 };

@@ -7,6 +7,7 @@ import {
 
 import { RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';
 import type { TypeValues } from '../auth-page.types';
+
 import styles from './result-icon.module.css';
 
 type ResultIconProps = {

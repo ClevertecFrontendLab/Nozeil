@@ -1,10 +1,11 @@
+import { type ReactNode, useState } from 'react';
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { BASE_URL } from '@services/api.constants';
 import { Button, Form } from 'antd';
 import classNames from 'classnames/bind';
-import { type ReactNode, useState } from 'react';
 
 import { OnFinishAuth } from '../auth-forms.types';
+
 import styles from './auth-form.module.css';
 
 type AuthFormProps = {
@@ -17,7 +18,6 @@ type AuthFormProps = {
     submitButtonText?: string;
     googleButton?: boolean;
     googleButtonText?: string;
-    googleButtonOnClick?: () => void;
     shouldValidate?: boolean;
 };
 
@@ -42,6 +42,7 @@ export const AuthForm = ({
     const onFieldsChange = () => {
         if (shouldValidate) {
             const hasErrors = form.getFieldsError().some(({ errors }) => errors.length);
+
             setIsDisabled(hasErrors);
         }
     };
@@ -62,7 +63,7 @@ export const AuthForm = ({
             <Form.Item className={styles.loginBtnFormItem}>
                 <Button
                     className={cx(styles.btn, submitButtonClassName)}
-                    block
+                    block={true}
                     type='primary'
                     htmlType='submit'
                     disabled={isDisabled}
@@ -75,9 +76,11 @@ export const AuthForm = ({
                 <Form.Item>
                     <Button
                         className={styles.btn}
-                        block
+                        block={true}
                         icon={<GooglePlusOutlined />}
-                        onClick={() => (window.location.href = `${BASE_URL}auth/google`)}
+                        onClick={() => {
+                            window.location.href = `${BASE_URL}auth/google`;
+                        }}
                     >
                         {googleButtonText}
                     </Button>

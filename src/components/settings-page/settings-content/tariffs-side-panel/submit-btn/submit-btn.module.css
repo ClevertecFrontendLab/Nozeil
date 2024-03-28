@@ -1,0 +1,3 @@
+.btn:global(.ant-btn) {
+    font-size: var(--text-sm);
+}

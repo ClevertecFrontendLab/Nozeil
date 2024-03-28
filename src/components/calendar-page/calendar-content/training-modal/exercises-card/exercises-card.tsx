@@ -1,18 +1,19 @@
+import { type ReactNode } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import EmptyIcon from '@assets/icons/empty.svg?react';
 import { Flex } from '@components/flex/flex';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { openCalendarSidePanel } from '@redux/slices/calendar-side-panel';
+import { openSidePanel } from '@redux/slices/side-panel';
 import {
     resetFormExercises,
     trainingModalSelector,
 } from '@redux/slices/training-modal/training-modal';
 import { Button, Card, Empty } from 'antd';
-import { type ReactNode } from 'react';
 
-import styles from './../training-modal.module.css';
 import { Exercises } from './exercises';
 import { ExercisesSelect } from './exercises-select';
+
+import styles from '../training-modal.module.css';
 
 type ExercisesCardProps = {
     saveButton: ReactNode;
@@ -29,7 +30,7 @@ export const ExercisesCard = ({ saveButton, resetForm, onArrowLeftClick }: Exerc
             dispatch(resetFormExercises());
         }
 
-        dispatch(openCalendarSidePanel());
+        dispatch(openSidePanel());
     };
 
     const content = exercises.length ? (
@@ -54,7 +55,7 @@ export const ExercisesCard = ({ saveButton, resetForm, onArrowLeftClick }: Exerc
             actions={[
                 <Flex direction='column' gap='gap8'>
                     <Button
-                        block
+                        block={true}
                         type='default'
                         onClick={onAddExerciseClick}
                         disabled={isExerciseBtnLocked}

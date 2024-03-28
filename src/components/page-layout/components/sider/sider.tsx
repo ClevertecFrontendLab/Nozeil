@@ -1,7 +1,8 @@
-import { Layout } from 'antd';
 import { type ReactNode } from 'react';
+import { Layout } from 'antd';
 
 import { SIDER_SIZES } from './sider.constants';
+
 import styles from './sider.module.css';
 
 type SiderProps = {
@@ -22,7 +23,7 @@ export const Sider = ({ isBreakpoint, onBreakpoint, collapsed, children }: Sider
             className={styles.sider}
             collapsed={collapsed}
             collapsedWidth={sizes.collapsedWidth}
-            collapsible
+            collapsible={true}
             trigger={null}
             width={sizes.width}
             theme='light'

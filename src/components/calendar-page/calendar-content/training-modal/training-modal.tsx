@@ -1,12 +1,13 @@
+import { type CSSProperties } from 'react';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { trainingModalSelector } from '@redux/slices/training-modal/training-modal';
 import { Button } from 'antd';
-import { type CSSProperties } from 'react';
 
 import { ExercisesCard } from './exercises-card/exercises-card';
 import { useOnSaveExercise } from './hooks/use-on-save-exercise';
-import styles from './training-modal.module.css';
 import { TrainingsCard } from './trainings-card/trainings-card';
+
+import styles from './training-modal.module.css';
 
 type TrainingModalProps = {
     resetExercisesAndForm: () => void;
@@ -25,7 +26,7 @@ export const TrainingModal = ({ style, resetForm, resetExercisesAndForm }: Train
         <ExercisesCard
             saveButton={
                 <Button
-                    block
+                    block={true}
                     type='link'
                     disabled={!exercises.length && exercisesFormMode === 'new'}
                     onClick={onSaveExercise}

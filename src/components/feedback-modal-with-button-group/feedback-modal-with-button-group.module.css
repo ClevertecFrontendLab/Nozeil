@@ -1,0 +1,46 @@
+.btn:global(.ant-btn) {
+    font-size: var(--text-sm);
+}
+
+.modal:global(.ant-modal) :global(.ant-modal-footer) {
+    padding-left: var(--p-create-feedback-modal);
+    padding-right: var(--p-create-feedback-modal);
+}
+
+.modal :global(.ant-modal-body) {
+    padding: var(--p-create-feedback-modal);
+}
+
+.modal:global(.ant-modal) :global(.ant-modal-close-x) {
+    width: var(--modal-close-icon-wh);
+    height: var(--modal-close-icon-wh);
+}
+
+.btnGroup {
+    width: fit-content;
+}
+
+@media screen and (max-width: 767px) {
+    .modal :global(.ant-modal-header) {
+        padding: var(--p-create-feedback-modal-tablet);
+    }
+
+    .modal:global(.ant-modal) :global(.ant-modal-body),
+    .modal:global(.ant-modal) :global(.ant-modal-footer) {
+        padding-left: var(--p-create-feedback-modal-tablet);
+        padding-right: var(--p-create-feedback-modal-tablet);
+    }
+
+    .modal:global(.ant-modal) :global(.ant-modal-close-x) {
+        width: var(--modal-close-icon-tablet-wh);
+        height: var(--modal-close-icon-tablet-wh);
+    }
+
+    .btnGroup {
+        width: 100%;
+    }
+
+    .btn:global(.ant-btn) {
+        width: 100%;
+    }
+}

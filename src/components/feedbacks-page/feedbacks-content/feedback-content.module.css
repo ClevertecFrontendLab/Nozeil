@@ -16,8 +16,7 @@
     display: none;
   }
 
-.flex {
-    width: fit-content;
+.btnGroup {
     margin-top: var(--mt-feedback-button-group);
 }
 
@@ -26,9 +25,8 @@
 }
 
 @media screen and (max-width: 767px) {
-    .flex {
+    .btnGroup {
         margin-top: var(--mt-feedback-button-group-tablet);
-        width: 100%;
     }
 }
 

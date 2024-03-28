@@ -1,3 +1,4 @@
+import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import {
     clearExercises,
@@ -11,9 +12,8 @@ import {
 } from '@redux/slices/training-modal/training-modal';
 import { useGetTrainingListQuery } from '@services/endpoints/catalogs';
 import { Select } from 'antd';
-import { useEffect, useMemo } from 'react';
 
-import styles from './../training-modal.module.css';
+import styles from '../training-modal.module.css';
 
 type ExercisesSelectProps = {
     reset: () => void;
@@ -25,7 +25,7 @@ export const ExercisesSelect = ({ reset }: ExercisesSelectProps) => {
         useAppSelector(trainingModalSelector);
     const dispatch = useAppDispatch();
 
-    const options = useMemo(() => {
+    const selectOptions = useMemo(() => {
         let options;
 
         if (!isPast) {
@@ -45,17 +45,17 @@ export const ExercisesSelect = ({ reset }: ExercisesSelectProps) => {
     }, [dispatch, trainingType]);
 
     const onSelect = (value: string) => {
-        const training = trainings.find((training) => training.name === value);
+        const selectedTraining = trainings.find((training) => training.name === value);
 
         reset();
 
         dispatch(resetFormExercises());
         dispatch(clearExercises());
-        dispatch(setTrainingType({ name: value, id: training?._id }));
+        dispatch(setTrainingType({ name: value, id: selectedTraining?._id }));
 
-        if (training) {
+        if (selectedTraining) {
             dispatch(setExerciseFormMode('edit'));
-            dispatch(setReceivedExercises(training.exercises));
+            dispatch(setReceivedExercises(selectedTraining.exercises));
             dispatch(setFormExercises());
         } else {
             dispatch(setExerciseFormMode('new'));
@@ -68,7 +68,7 @@ export const ExercisesSelect = ({ reset }: ExercisesSelectProps) => {
             className={styles.select}
             size='middle'
             defaultValue={trainingType.name ? trainingType.name : 'Выбор типа тренировки'}
-            options={options}
+            options={selectOptions}
             onSelect={onSelect}
         />
     );

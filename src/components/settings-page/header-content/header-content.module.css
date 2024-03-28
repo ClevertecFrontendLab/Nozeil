@@ -1,0 +1,28 @@
+.btn:global(.ant-btn) {
+    padding: var(--p-settings-header-btn);
+    font-size: var(--text-xl);
+    font-weight: var(--font-medium);
+}
+
+.btn:global(.ant-btn):hover,
+.btn:global(.ant-btn):focus {
+    background-color: inherit;
+}
+
+.btn :global(.anticon) + span {
+    margin-left: var(--ml-settings-header-icon);
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 767px) {
+    .btn:global(.ant-btn) {
+        height: var(--h-30);
+        font-size: var(--text-sm);
+        font-weight: var(--font-normal);
+    }
+
+    .btn :global(.anticon) + span {
+        margin-left: var(--ml-settings-header-icon-tablet);
+        vertical-align: middle;
+    }
+}

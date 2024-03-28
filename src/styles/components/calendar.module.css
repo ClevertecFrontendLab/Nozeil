@@ -23,7 +23,7 @@
 }
 
 :global(.ant-picker-calendar),
-:global(.ant-picker-body),
+:global(.ant-picker-calendar) :global(.ant-picker-body),
 :global(
         .ant-picker-calendar-full
             .ant-picker-panel
@@ -82,7 +82,7 @@
     color: var(--primary-light-6);
 }
 
-:global(.ant-picker-content th) {
+:global(.ant-picker-calendar .ant-picker-content th) {
     color: var(--character-light-secondary-45);
 }
 
@@ -136,7 +136,7 @@
     }
 
     :global(.ant-picker-calendar),
-    :global(.ant-picker-body),
+    :global(.ant-picker-calendar) :global(.ant-picker-body),
     :global(
             .ant-picker-calendar-full
                 .ant-picker-panel
@@ -164,7 +164,7 @@
         background-color: var(--character-light-primary-inverse);
     }
 
-    :global(.ant-picker-content th) {
+    :global(.ant-picker-calendar .ant-picker-content th) {
         font-weight: var(--font-medium);
         color: var(--character-light-title-85);
     }
@@ -189,20 +189,25 @@
         line-height: var(--line-height-24);
     }
 
-    :global(.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner),
     :global(
-            .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(
+            .ant-picker-calendar
+                .ant-picker-cell:hover:not(.ant-picker-cell-in-view)
+                .ant-picker-cell-inner
+        ),
+    :global(
+            .ant-picker-calendar
+                .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(
                     .ant-picker-cell-range-start
                 ):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(
                     .ant-picker-cell-range-hover-end
                 )
                 .ant-picker-cell-inner
         ),
-    :global(.ant-picker-cell .ant-picker-cell-inner) {
+    :global(.ant-picker-calendar .ant-picker-cell .ant-picker-cell-inner) {
         min-width: var(--mw-picker-cell-mobile-l);
     }
 
-    :global(.ant-picker-cell-today.ant-picker-cell-selected::before) {
+    :global(.ant-picker-cell-today.ant-picker-cell-selected:before) {
         border-radius: var(--rounded-none);
         background-color: var(--primary-light-1);
     }
@@ -213,7 +218,7 @@
         background-color: var(--primary-light-6);
     }
 
-    :global(.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before) {
+    :global(.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before) {
         border-color: var(--primary-light-6);
     }
 

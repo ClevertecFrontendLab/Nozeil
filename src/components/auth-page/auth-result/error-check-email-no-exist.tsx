@@ -1,5 +1,5 @@
-import { ROUTES } from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@constants/routes';
 
 import { ResultButton } from '../../result-button/result-button';
 import { RESULT_CARD_TYPE_KEYS, RESULT_ICON_TYPE_KEYS } from '../auth-page.constants';

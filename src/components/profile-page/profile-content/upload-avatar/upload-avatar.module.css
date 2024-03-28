@@ -1,0 +1,39 @@
+.uploadFormItem:global(.ant-form-item) {
+    flex-basis: var(--w-profile-upload-form-item);
+    height: var(--h-profile-upload-form-item);
+}
+
+.progress:global(.ant-progress) {
+    height: var(--h-profile-upload-progress);
+    width: var(--w-profile-upload-progress);
+}
+
+.uploadLabel {
+    font-size: var(--text-xs);
+}
+
+.uploadFormItem :global(.ant-upload-list-item) {
+    margin-top: var(--mt-profile-upload-list-item);
+}
+
+@media screen and (max-width: 575px) {
+    .uploadFormItem:global(.ant-form-item) {
+        flex-basis: auto;
+        height: auto;
+        margin-bottom: var(--mb-profile-form-item-mobile-l);
+    }
+
+    .uploadFormItem :global(.ant-form-item-row) {
+        flex-wrap: nowrap;
+        gap: var(--gap-16);
+    }
+
+    .uploadFormItem:global(.ant-form-item) :global(.ant-form-item-label) {
+        padding: var(--p-profile-upload-form-item-label-mobile-l);
+        white-space: nowrap;
+    }
+
+    .uploadFormItem :global(.ant-upload-list-item-name) {
+        visibility: hidden;
+    }
+}

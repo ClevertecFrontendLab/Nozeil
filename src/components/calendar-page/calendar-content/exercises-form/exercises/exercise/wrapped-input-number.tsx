@@ -25,7 +25,7 @@ export const WrappedInputNumber = ({
         <Row gutter={[0, 6]}>
             <Typography.Text className={styles.text}>{title}</Typography.Text>
 
-            <Form.Item name={[id, name]} initialValue={initialValue} noStyle>
+            <Form.Item name={[id, name]} initialValue={initialValue} noStyle={true}>
                 <InputNumber
                     className={styles.input}
                     placeholder={placeholder}

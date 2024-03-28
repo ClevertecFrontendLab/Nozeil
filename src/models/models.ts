@@ -80,9 +80,9 @@ type NewTraining = {
 
 export type TrainingResponse = NewTraining & {
     _id: string;
-    exercises: (TrainingExercise & {
+    exercises: Array<TrainingExercise & {
         _id: string;
-    })[];
+    }>;
 };
 
 export type GetTrainingResponse = TrainingResponse[];
@@ -97,3 +97,45 @@ export type TrainingListResponse = TrainingListItem[];
 export type CreateTrainingResponse = TrainingResponse;
 export type TrainingBody = Omit<NewTraining, 'userId'>;
 export type UpdateTrainingArgs = { id: string; body: TrainingBody };
+
+export type UserInfoResponse = {
+    email: string;
+    firstName: string;
+    lastName: string;
+    birthday: string;
+    imgSrc: string;
+    readyForJointTraining: boolean;
+    sendNotification: boolean;
+    tariff: {
+        tariffId: string;
+        expired: string;
+    };
+};
+
+export type UpdateUserBody = {
+    email?: string;
+    password?: string;
+    firstName?: string;
+    lastName?: string;
+    birthday?: string;
+    imgSrc?: string;
+    readyForJointTraining?: boolean;
+    sendNotification?: boolean;
+};
+
+type TariffItem = {
+    _id: string;
+    name: string;
+    periods: Array<{
+        text: string;
+        cost: number;
+        days: number;
+    }>;
+};
+
+export type TariffListResponse = TariffItem[];
+
+export type BuyTariffBody = {
+    tariffId: string;
+    days: number;
+};

@@ -1,0 +1,7 @@
+:global(.ant-upload.ant-upload-select-picture-card:hover) {
+    border-color: var(--primary-light-6);
+}
+
+:global(.ant-upload-list .ant-upload-list-item-thumbnail) {
+    opacity: 1;
+}

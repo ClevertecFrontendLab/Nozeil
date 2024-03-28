@@ -1,0 +1,3 @@
+.btn:global(.ant-btn-link) {
+    padding: var(--p-feedbacks-nav-btn);
+}

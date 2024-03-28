@@ -28,6 +28,7 @@ export const authApi = api.injectEndpoints({
                 method: 'POST',
                 body,
             }),
+            invalidatesTags: ['User'],
         }),
         checkEmail: builder.mutation<CheckEmailResponse, CheckEmailBody>({
             query: (body) => ({

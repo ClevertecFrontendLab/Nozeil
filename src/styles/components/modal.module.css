@@ -1,8 +1,3 @@
-:global(.ant-modal-close-x) {
-    width: var(--modal-close-icon-wh);
-    height: var(--modal-close-icon-wh);
-}
-
 :global(.ant-modal-mask) {
     backdrop-filter: blur(var(--blur-value));
 }
@@ -14,10 +9,5 @@
 @media screen and (max-width: 767px) {
     :global(.ant-modal) {
         max-width: calc(100vw - var(--modal-lr-offset));
-    }
-
-    :global(.ant-modal-close-x) {
-        width: var(--modal-close-icon-tablet-wh);
-        height: var(--modal-close-icon-tablet-wh);
     }
 }

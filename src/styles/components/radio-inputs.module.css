@@ -1,0 +1,8 @@
+:global(.ant-radio:hover .ant-radio-inner),
+:global(.ant-radio-checked .ant-radio-inner) {
+    border-color: var(--primary-light-6);
+}
+
+:global(.ant-radio-inner:after) {
+    background-color: var(--primary-light-6);
+}
